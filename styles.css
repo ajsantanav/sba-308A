@@ -15,7 +15,7 @@ nav {
     background-color: rgba(211,211,211, .7);
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
-    width: 240px;
+    width: 220px;
     margin: 10px;
     padding: 20px;
     text-align: center;
@@ -27,6 +27,10 @@ nav {
     align-items: space-around;
     justify-content: center;
     margin: auto;
+    max-width: 1500px;
+    max-height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .pokemon img {
@@ -59,4 +63,8 @@ nav {
 .type span {
     margin: 2px;
     padding: 2px;
+}
+
+.pokemon-container::-webkit-scrollbar {
+    display: none;
 }

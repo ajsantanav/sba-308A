@@ -11,7 +11,7 @@ const pokeList = document.getElementById('pokemon-container');
 // Limit entries variant url
 // const url = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
 //URL with just bulbasaur
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=1025'
 getPokemon();
 
 
@@ -64,17 +64,14 @@ async function getPokemon() {
         //pokemon dex id and name
         const dexName = document.createElement("div");
         dexName.classList.add("dexName")
-            // Spans for name and ID
-            const pkIdspan = document.createElement("span");
-            pkIdspan.classList.add("number");
-            pkIdspan.textContent = `#${id} ${name}`;
-            const pkNameSpan = document.createElement("span")
-            pkNameSpan.classList.add("name");
-            // pkNameSpan.textContent = name;
-            dexName.appendChild(pkIdspan);
-            dexName.appendChild(pkNameSpan);
 
-            pokemonDiv.appendChild(dexName)
+        // Spans for name and ID
+        const pkIdspan = document.createElement("span");
+        pkIdspan.classList.add("number");
+        pkIdspan.textContent = `#${id} ${name}`;
+        const pkNameSpan = document.createElement("span")
+        dexName.appendChild(pkIdspan);
+        pokemonDiv.appendChild(dexName)
 
         //image 
         const pokeImgContainer = document.createElement("div")
