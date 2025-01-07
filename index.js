@@ -39,10 +39,9 @@ async function getPokemon() {
     const response = await fetch(url);
     const json = await response.json();
 
-    // Assuming the API returns an array of Pokémon data
     const pokemonInfo = await Promise.all(
         json.results.map(async (pokemon) => {
-            const res = await fetch(pokemon.url); // Fetch each Pokémon's details
+            const res = await fetch(pokemon.url); 
             const details = await res.json();
 
             return {
@@ -56,7 +55,7 @@ async function getPokemon() {
         })
     );
 
-    // Log each Pokémon's information
+ 
     pokemonInfo.forEach(({ id, name, spriteNormal, spriteShiny, type1, type2 }) => {
    
         //pokemon card
@@ -68,10 +67,10 @@ async function getPokemon() {
             // Spans for name and ID
             const pkIdspan = document.createElement("span");
             pkIdspan.classList.add("number");
-            pkIdspan.textContent = `# ${id}`;
+            pkIdspan.textContent = `#${id} ${name}`;
             const pkNameSpan = document.createElement("span")
             pkNameSpan.classList.add("name");
-            pkNameSpan.textContent = name;
+            // pkNameSpan.textContent = name;
             dexName.appendChild(pkIdspan);
             dexName.appendChild(pkNameSpan);
 
@@ -79,6 +78,7 @@ async function getPokemon() {
 
         //image 
         const pokeImgContainer = document.createElement("div")
+        pokeImgContainer.classList.add("imageContainer")
         const pokeImg = document.createElement("img")
         pokeImg.src = spriteNormal;
         pokeImg.alt = name;
@@ -98,6 +98,7 @@ async function getPokemon() {
             pokeType1.textContent = type2;
             typeDiv.appendChild(pokeType1)
         }
+
         pokemonDiv.appendChild(typeDiv)
         pokeList.appendChild(pokemonDiv);
     });
